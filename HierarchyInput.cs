@@ -298,6 +298,17 @@ namespace Fusee.Tutorial.Core
                 _camAngle -= (Mouse.Velocity.x * DeltaTime) / 100;
             }
 
+            float bodyRot = _bodyTransform.Rotation.y;
+            bodyRot += Keyboard.LeftRightAxis * DeltaTime * 3;
+            _bodyTransform.Rotation = new float3(0, bodyRot, 0);
+
+            float upperRot = _upperArmTransform.Rotation.x;
+            upperRot += Keyboard.UpDownAxis * DeltaTime * 3;
+            _upperArmTransform.Rotation = new float3(upperRot, 0, 0);
+
+            float foreRot = _foreArmTransform.Rotation.x;
+            foreRot += Keyboard.WSAxis * DeltaTime * 3;
+            _foreArmTransform.Rotation = new float3(foreRot, 0, 0);
 
             float finger1Rot = _finger1Transform.Rotation.x;
             if(finger1Rot < -1){
