@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Fusee.Base.Common;
@@ -298,32 +298,8 @@ namespace Fusee.Tutorial.Core
                 _camAngle -= (Mouse.Velocity.x * DeltaTime) / 100;
             }
 
-            float bodyRot = _bodyTransform.Rotation.y;
-            bodyRot += Keyboard.LeftRightAxis * DeltaTime * 3;
-            _bodyTransform.Rotation = new float3(0, bodyRot, 0);
 
-            float upperRot = _upperArmTransform.Rotation.x;
-            upperRot += Keyboard.UpDownAxis * DeltaTime * 3;
-            _upperArmTransform.Rotation = new float3(upperRot, 0, 0);
-
-            float foreRot = _foreArmTransform.Rotation.x;
-            foreRot += Keyboard.WSAxis * DeltaTime * 3;
-            _foreArmTransform.Rotation = new float3(foreRot, 0, 0);
-
-            float finger1 = _finger1Transform.Rotation.x;
-            finger1 += Keyboard.ADAxis * DeltaTime * 3;
-            _finger1Transform.Rotation = new float3(finger1, 0, 0);
-
-            float finger2 = _finger2Transform.Rotation.x;
-            finger2 += Keyboard.ADAxis * DeltaTime * 3;
-            _finger2Transform.Rotation = new float3(finger2, 0, 0);
-
-            float finger3 = _finger3Transform.Rotation.x;
-            finger3 -= Keyboard.ADAxis * DeltaTime * 3;
-            _finger3Transform.Rotation = new float3(finger3, 0, 0);
-            
-            //Versuch Handöffnung zu limitieren
-            /*float finger1Rot = _finger1Transform.Rotation.x;
+            float finger1Rot = _finger1Transform.Rotation.x;
             if(finger1Rot < -1){
                 finger1Rot = -1;
             }
@@ -351,8 +327,7 @@ namespace Fusee.Tutorial.Core
                 finger3Rot = 0;
             }
             finger3Rot += Keyboard.ADAxis * DeltaTime * 3;
-            _finger3Transform.Rotation = new float3(finger3Rot, 0, 0);*/
-
+            _finger3Transform.Rotation = new float3(finger3Rot, 0, 0);
 
             RC.Clear(ClearFlags.Color | ClearFlags.Depth);
 
