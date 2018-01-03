@@ -321,6 +321,36 @@ namespace Fusee.Tutorial.Core
             float finger3 = _finger3Transform.Rotation.x;
             finger3 -= Keyboard.ADAxis * DeltaTime * 3;
             _finger3Transform.Rotation = new float3(finger3, 0, 0);
+            
+            float finger1Rot = _finger1Transform.Rotation.x;
+            if(finger1Rot < -1){
+                finger1Rot = -1;
+            }
+            if(finger1Rot > 0){
+                finger1Rot = 0;
+            }
+            finger1Rot -= Keyboard.ADAxis * DeltaTime * 3;
+            _finger1Transform.Rotation = new float3(finger1Rot, 0, 0);
+
+            float finger2Rot = _finger2Transform.Rotation.x;
+            if(finger2Rot < -1){
+                finger2Rot = -1;
+            }
+            if(finger2Rot > 0){
+                finger2Rot = 0;
+            }
+            finger2Rot -= Keyboard.ADAxis * DeltaTime * 3;
+            _finger2Transform.Rotation = new float3(finger2Rot, 0, 0);
+
+            float finger3Rot = _finger3Transform.Rotation.x;
+            if(finger3Rot > 1){
+                finger3Rot = 1;
+            }
+            if(finger3Rot < 0){
+                finger3Rot = 0;
+            }
+            finger3Rot += Keyboard.ADAxis * DeltaTime * 3;
+            _finger3Transform.Rotation = new float3(finger3Rot, 0, 0);
 
 
             RC.Clear(ClearFlags.Color | ClearFlags.Depth);
